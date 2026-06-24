@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Madeswaran K. — Mechanical Engineer</title>
+<meta name="description" content="Portfolio of Madeswaran K., a Mechanical Engineering student specializing in CAD design, product development, and mechanical R&D. CSWA Certified SOLIDWORKS Associate." />
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
+
+<style>
+/* ════════════════════════════════
+   DESIGN TOKENS & RESET
+   ════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-tech: 'Space Grotesk', var(--font-sans);
+  --font-mono: 'Space Mono', monospace;
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-slow: 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ════════════════════════════════
+   DARK THEME (DEFAULT / PREMIUM)
+   ════════════════════════════════ */
+[data-theme="dark"] {
+  --bg-page: 222 47% 6%; /* Deep navy canvas */
+  --bg-surface: 217 33% 10%; /* Drafting board card */
+  --bg-surface-raised: 217 33% 13%;
+  --border: 217 32% 17%;
+  --border-mid: 217 32% 25%;
+  --border-active: 191 91% 40%;
+  --ink: 210 40% 98%;
+  --ink-mid: 215 20% 80%;
+  --ink-muted: 215 16% 65%;
+  
+  --accent: 191 91% 45%; /* Electric Cyan */
+  --accent-rgb: 6, 182, 212;
+  --accent-gradient: linear-gradient(135deg, #00f2fe 0%, #4d9fff 100%);
+  --accent-soft: rgba(6, 182, 212, 0.08);
+  --accent-mid: rgba(6, 182, 212, 0.2);
+  --accent-txt: #00f2fe;
+  
+  --green: 142 71% 45%;
+  --green-soft: rgba(34, 197, 94, 0.1);
+  
+  --grid-dot: rgba(6, 182, 212, 0.07);
+  --glow-1: rgba(6, 182, 212, 0.18);
+  --glow-2: rgba(77, 159, 255, 0.12);
+  
+  --blueprint-bg: #071120;
+  --blueprint-grid: rgba(6, 182, 212, 0.06);
+  --blueprint-line: rgba(6, 182, 212, 0.4);
+}
+
+/* ════════════════════════════════
+   LIGHT THEME (CLINICAL LAB)
+   ════════════════════════════════ */
+[data-theme="light"] {
+  --bg-page: 38 18% 94%; /* Elegant warm drafting-paper tone (#f2efe9) */
+  --bg-surface: 40 20% 99%; /* Clean warm-white card (#fbfbf9) */
+  --bg-surface-raised: 36 15% 95%; /* Slightly darker warm paper tone (#f4efe5) */
+  --border: 38 10% 86%; /* Soft warm-grey border (#ddd9d0) */
+  --border-mid: 38 10% 74%; /* Contrasting warm-grey (#bebaa7) */
+  --border-active: 221 83% 53%; /* Crisp cobalt blue highlight */
+  --ink: 36 20% 12%; /* Rich warm graphite dark-grey (#1f1b17) */
+  --ink-mid: 36 12% 30%; /* Warm charcoal grey (#4d4740) */
+  --ink-muted: 36 8% 52%; /* Muted warm-slate (#858079) */
+  
+  --accent: 221 83% 53%; /* Strong electric cobalt blue */
+  --accent-rgb: 37, 99, 235;
+  --accent-gradient: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+  --accent-soft: rgba(37, 99, 235, 0.08);
+  --accent-mid: rgba(37, 99, 235, 0.2);
+  --accent-txt: #1d4ed8;
+  
+  --green: 142 76% 36%;
+  --green-soft: rgba(22, 163, 74, 0.08);
+  
+  --grid-dot: rgba(31, 27, 23, 0.06); /* Highly detailed grid dot */
+  --glow-1: rgba(37, 99, 235, 0.07);
+  --glow-2: rgba(109, 40, 217, 0.04);
+  
+  --blueprint-bg: #ece9df; /* Rich paper layout blueprint */
+  --blueprint-grid: rgba(31, 27, 23, 0.05);
+  --blueprint-line: rgba(37, 99, 235, 0.55); /* Blueprint blue ink on paper */
+}
+
+/* ════════════════════════════════
+   GLOBAL STYLES & LAYOUT
+   ════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: hsl(var(--bg-page));
+  background-image: radial-gradient(var(--grid-dot) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  color: hsl(var(--ink));
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+}
+
+::selection {
+  background: var(--accent-mid);
+  color: hsl(var(--ink));
+}
+
+/* Ambient glow blobs */
+.glow-blobs {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glow-blob-1 {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: var(--glow-1);
+  filter: blur(120px);
+  transition: background var(--transition-slow);
+}
+.glow-blob-2 {
+  position: absolute;
+  bottom: 10%;
+  right: -5%;
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  background: var(--glow-2);
+  filter: blur(100px);
+  transition: background var(--transition-slow);
+}
+
+/* Scroll progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent-gradient);
+  z-index: 400;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Layout container */
+section {
+  padding: 100px 6%;
+  position: relative;
+  z-index: 10;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════
+   CAD CARD UTILITIES
+   ════════════════════════════════ */
+.cad-card {
+  position: relative;
+  background: hsl(var(--bg-surface));
+  border: 1px solid hsl(var(--border));
+  transition: transform var(--transition-normal), border-color var(--transition-normal), background-color var(--transition-slow), box-shadow var(--transition-normal);
+}
+.cad-card:hover {
+  border-color: hsl(var(--border-mid));
+}
+
+/* Corner bracket details */
+.cad-corner {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1px solid hsl(var(--border-mid));
+  pointer-events: none;
+}
+.cad-tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.cad-tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.cad-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.cad-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.cad-card:hover .cad-corner {
+  border-color: hsl(var(--accent));
+}
+
+/* ════════════════════════════════
+   TYPOGRAPHY
+   ════════════════════════════════ */
+h1, h2, h3, .nav-logo {
+  font-family: var(--font-tech);
+}
+h2 {
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: hsl(var(--accent));
+  margin-bottom: 12px;
+  display: block;
+}
+.tech-mono {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: hsl(var(--ink-muted));
+}
+
+/* ════════════════════════════════
+   NAVIGATION
+   ════════════════════════════════ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: hsla(var(--bg-page), 0.7);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid hsl(var(--border));
+  transition: background-color var(--transition-slow), border-color var(--transition-slow);
+}
+nav {
+  height: 64px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-logo span {
+  color: hsl(var(--accent));
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: hsl(var(--ink-muted));
+  transition: color var(--transition-fast);
+}
+.nav-links a:hover {
+  color: hsl(var(--ink));
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switcher button styling */
+.switcher {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--ink));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+.switcher:hover {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+}
+.switcher i {
+  font-size: 16px;
+  transition: transform var(--transition-normal);
+}
+.switcher:active i {
+  transform: rotate(45deg);
+}
+
+.nav-cta {
+  background: hsl(var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  font-family: var(--font-tech);
+}
+.nav-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════
+   HERO SECTION
+   ════════════════════════════════ */
+#hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: hsl(var(--accent-txt));
+  margin-bottom: 24px;
+}
+.hero-pill .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: hsl(var(--green));
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+#hero h1 {
+  font-size: clamp(38px, 5.2vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+#hero h1 .gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero-rule {
+  width: 50px;
+  height: 4px;
+  background: var(--accent-gradient);
+  margin-bottom: 24px;
+  border-radius: 2px;
+}
+.hero-sub {
+  font-size: 16px;
+  color: hsl(var(--ink-mid));
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 28px;
+}
+.hero-meta {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: hsl(var(--ink-muted));
+}
+.hero-meta-item i {
+  color: hsl(var(--accent));
+  font-size: 16px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--font-tech);
+  transition: all var(--transition-fast);
+}
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  box-shadow: var(--btn-shadow);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+.btn-secondary {
+  background: hsl(var(--bg-surface));
+  color: hsl(var(--ink));
+  border: 1px solid hsl(var(--border-mid));
+}
+.btn-secondary:hover {
+  border-color: hsl(var(--ink));
+  transform: translateY(-2px);
+}
+
+.social-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--ink-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+.social-icon:hover {
+  background: var(--accent-soft);
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent-txt));
+  transform: translateY(-2px);
+}
+.social-icon i {
+  font-size: 18px;
+}
+
+/* Hero Badge / ID Card */
+.hero-card-container {
+  perspective: 1000px;
+  z-index: 20;
+}
+.hero-card {
+  padding: 36px 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.25);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+[data-theme="dark"] .hero-card {
+  background: linear-gradient(135deg, rgba(13, 21, 39, 0.9) 0%, rgba(9, 15, 29, 0.9) 100%);
+  border-color: rgba(6, 182, 212, 0.2);
+}
+.card-header-tech {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.card-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.hero-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  font-family: var(--font-tech);
+  box-shadow: 0 8px 24px -6px hsl(var(--accent));
+}
+.card-title-block {
+  display: flex;
+  flex-direction: column;
+}
+.hero-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+}
+.hero-card-role {
+  font-size: 13px;
+  color: hsl(var(--accent-txt));
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hero-divider {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, hsl(var(--border)) 0px, hsl(var(--border)) 4px, transparent 4px, transparent 8px);
+  margin: 20px 0;
+}
+
+.hero-icogrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.hero-icocell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.ic-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--accent-txt));
+  transition: transform var(--transition-normal);
+}
+.hero-card:hover .ic-box {
+  transform: translateZ(20px);
+}
+.ic-top {
+  font-size: 11px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+}
+.ic-bot {
+  font-size: 10px;
+  color: hsl(var(--ink-muted));
+}
+
+.hero-stats {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.hero-stat {
+  flex: 1;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  padding: 12px 6px;
+  text-align: center;
+  transition: border-color var(--transition-fast);
+}
+.hero-card:hover .hero-stat {
+  border-color: hsl(var(--border-mid));
+}
+.hero-stat-num {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  display: block;
+  color: hsl(var(--accent-txt));
+}
+.hero-stat-lbl {
+  font-size: 9px;
+  color: hsl(var(--ink-muted));
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ════════════════════════════════
+   ABOUT SECTION
+   ════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 64px;
+  align-items: start;
+}
+.about-text {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: hsl(var(--ink-mid));
+}
+.about-text p {
+  margin-bottom: 20px;
+}
+.stat-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  padding: 24px 20px;
+  border-radius: 12px;
+}
+.stat-num {
+  font-family: var(--font-mono);
+  font-size: 38px;
+  font-weight: 700;
+  color: hsl(var(--accent-txt));
+  line-height: 1;
+  letter-spacing: -1px;
+}
+.stat-lbl {
+  font-size: 11px;
+  color: hsl(var(--ink-muted));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 6px;
+}
+.cert-row {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cert-ico {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: hsl(var(--accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+.cert-ico i {
+  font-size: 20px;
+}
+.cert-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+}
+.cert-sub {
+  font-size: 11.5px;
+  color: hsl(var(--ink-muted));
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════
+   SKILLS & TOOLKIT
+   ════════════════════════════════ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+.skill-grp {
+  padding: 24px;
+  border-radius: 14px;
+  background: hsl(var(--bg-surface));
+}
+.grp-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: hsl(var(--ink));
+  margin-bottom: 20px;
+  font-family: var(--font-tech);
+}
+.grp-title i {
+  color: hsl(var(--accent));
+  font-size: 18px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+}
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: hsl(var(--ink-mid));
+  margin-bottom: 6px;
+}
+.precision-scale {
+  height: 6px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  border-radius: 3px;
+  position: relative;
+  overflow: visible;
+}
+.scale-ticks {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(90deg, hsl(var(--border-mid)) 0px, hsl(var(--border-mid)) 1px, transparent 1px, transparent 12%);
+  opacity: 0.8;
+}
+.scale-runner {
+  position: absolute;
+  top: -4px;
+  width: 12px;
+  height: 12px;
+  background: var(--accent-gradient);
+  border: 2px solid hsl(var(--bg-surface));
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 6px hsl(var(--accent));
+}
+
+/* ════════════════════════════════
+   PROJECTS SECTION
+   ════════════════════════════════ */
+.sec-hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  padding: 4px;
+  border-radius: 8px;
+}
+.filter-btn {
+  background: transparent;
+  border: none;
+  color: hsl(var(--ink-muted));
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-tech);
+}
+.filter-btn:hover {
+  color: hsl(var(--ink));
+}
+.filter-btn.active {
+  background: hsl(var(--bg-surface));
+  color: hsl(var(--accent-txt));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid hsl(var(--border-mid));
+}
+
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.proj-card {
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+}
+.proj-card.feat {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  border: 1.5px solid hsl(var(--border-mid));
+}
+.proj-card.feat:hover {
+  border-color: hsl(var(--accent));
+}
+
+/* Blueprint schematic container */
+.project-svg {
+  width: 100%;
+  height: 160px;
+  background-color: var(--blueprint-bg);
+  background-image: 
+    linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+  background-size: 12px 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: all var(--transition-normal);
+  color: var(--blueprint-line);
+}
+.proj-card:hover .project-svg {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+}
+.proj-card.feat .project-svg {
+  height: 100%;
+  margin-bottom: 0;
+}
+
+/* Core SVG Styling for blueprint theme */
+.project-svg svg {
+  width: 85%;
+  height: 85%;
+}
+.project-svg stroke {
+  transition: stroke var(--transition-normal);
+}
+
+.pmeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.pdate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: hsl(var(--ink-muted));
+}
+.pbadge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.pbadge.funded {
+  background: var(--green-soft);
+  color: hsl(var(--green));
+}
+.pbadge.research {
+  background: rgba(234, 179, 8, 0.1);
+  color: #d97706;
+}
+[data-theme="dark"] .pbadge.research {
+  color: #fbbf24;
+}
+
+.ptitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+  margin-bottom: 10px;
+  font-family: var(--font-tech);
+}
+.pdesc {
+  font-size: 13.5px;
+  color: hsl(var(--ink-mid));
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.ptags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.ptag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  color: hsl(var(--ink-muted));
+  padding: 3px 8px;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+}
+.proj-card:hover .ptag {
+  border-color: hsl(var(--border-mid));
+  color: hsl(var(--ink-mid));
+}
+
+/* ════════════════════════════════
+   EXPERIENCE TIMELINE
+   ════════════════════════════════ */
+.exp-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 48px;
+  margin-top: 36px;
+}
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+/* Centerline style line for mechanical drawings */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3px;
+  width: 2px;
+  background-image: linear-gradient(to bottom, hsl(var(--border-mid)) 60%, transparent 60%);
+  background-size: 2px 14px;
+}
+
+.exp-item {
+  position: relative;
+  padding-bottom: 32px;
+}
+.exp-item:last-child {
+  padding-bottom: 0;
+}
+
+/* Concentric hinge-pivots on timeline */
+.timeline-node {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: hsl(var(--bg-page));
+  border: 2px solid hsl(var(--border-mid));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+.timeline-node::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--border-mid));
+  transition: all var(--transition-normal);
+}
+.exp-item:hover .timeline-node {
+  border-color: hsl(var(--accent));
+  box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+}
+.exp-item:hover .timeline-node::after {
+  background: hsl(var(--accent));
+}
+
+.exp-role {
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+  font-family: var(--font-tech);
+}
+.exp-org {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: hsl(var(--accent-txt));
+  margin: 4px 0 12px;
+}
+.exp-ul {
+  list-style: none;
+}
+.exp-ul li {
+  font-size: 13.5px;
+  color: hsl(var(--ink-mid));
+  line-height: 1.6;
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+}
+.exp-ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: hsl(var(--accent));
+}
+
+.cert-aside {
+  padding: 24px;
+  border-radius: 14px;
+}
+.ca-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: hsl(var(--ink));
+  margin-bottom: 20px;
+  font-family: var(--font-tech);
+}
+.ca-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ca-item {
+  display: flex;
+  gap: 12px;
+}
+.ca-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: hsl(var(--accent));
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.ca-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+}
+.ca-sub {
+  font-size: 11.5px;
+  color: hsl(var(--ink-muted));
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════
+   EDUCATION SECTION
+   ════════════════════════════════ */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+.edu-card {
+  padding: 30px;
+  border-radius: 16px;
+}
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.edu-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--accent-txt));
+}
+.edu-icon-box i {
+  font-size: 20px;
+}
+.edu-grade {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--accent-soft);
+  color: hsl(var(--accent-txt));
+  border: 1px solid var(--accent-mid);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.edu-deg {
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(var(--ink));
+  margin-bottom: 6px;
+  font-family: var(--font-tech);
+}
+.edu-sch {
+  font-size: 14px;
+  color: hsl(var(--ink-mid));
+  margin-bottom: 20px;
+}
+.edu-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: hsl(var(--ink-muted));
+}
+.edu-foot i {
+  color: hsl(var(--accent));
+}
+
+/* ════════════════════════════════
+   CONTACT SECTION
+   ════════════════════════════════ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: start;
+}
+.c-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.c-ico {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: hsl(var(--bg-surface-raised));
+  border: 1px solid hsl(var(--border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--accent-txt));
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+.c-item:hover .c-ico {
+  border-color: hsl(var(--accent));
+  color: hsl(var(--accent));
+  transform: scale(1.05);
+}
+.c-ico i {
+  font-size: 18px;
+}
+.c-lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: hsl(var(--ink-muted));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.c-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: hsl(var(--ink));
+  margin-top: 2px;
+}
+.c-val a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+.c-val a:hover {
+  color: hsl(var(--accent));
+}
+
+/* Input Fields with precision blueprint accents */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.fg {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.fg label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: hsl(var(--ink-muted));
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.fg input, .fg textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 13.5px;
+  background: hsl(var(--bg-surface));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  color: hsl(var(--ink));
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all var(--transition-fast);
+  resize: none;
+}
+.fg input::placeholder, .fg textarea::placeholder {
+  color: hsl(var(--ink-muted));
+  opacity: 0.6;
+}
+.fg input:focus, .fg textarea:focus {
+  border-color: hsl(var(--accent));
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.submit-btn {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-tech);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--btn-shadow);
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+.submit-btn i {
+  font-size: 16px;
+  transition: transform var(--transition-normal);
+}
+.submit-btn:hover i {
+  transform: translate(3px, -3px);
+}
+
+/* ════════════════════════════════
+   FOOTER
+   ════════════════════════════════ */
+footer {
+  background: hsl(var(--bg-surface-raised));
+  border-top: 1px solid hsl(var(--border));
+  padding: 32px 6%;
+  text-align: center;
+  font-size: 13px;
+  color: hsl(var(--ink-muted));
+  transition: all var(--transition-slow);
+}
+footer strong {
+  color: hsl(var(--ink));
+  font-weight: 600;
+}
+
+/* ════════════════════════════════
+   TOAST NOTIFICATION
+   ════════════════════════════════ */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: -350px;
+  width: 320px;
+  background: hsl(var(--bg-surface));
+  border: 1px solid hsl(var(--accent));
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  z-index: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.toast.show {
+  right: 24px;
+}
+.toast-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--accent-txt));
+  flex-shrink: 0;
+}
+.toast-content h4 {
+  font-family: var(--font-tech);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.toast-content p {
+  font-size: 12px;
+  color: hsl(var(--ink-muted));
+}
+
+/* ════════════════════════════════
+   ANIMATIONS (INLINE SVGS)
+   ════════════════════════════════ */
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+@keyframes spin-rev {
+  100% { transform: rotate(-360deg); }
+}
+@keyframes backhoe-swing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-10deg); }
+}
+@keyframes forearm-swing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+@keyframes bucket-swing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(25deg); }
+}
+@keyframes pulse {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* SVG interactive controls */
+.proj-card:hover .gear-main {
+  animation: spin 8s linear infinite;
+}
+.proj-card:hover .gear-second {
+  animation: spin-rev 5.3s linear infinite;
+}
+.proj-card:hover .turbine {
+  animation: spin 4s linear infinite;
+}
+.proj-card:hover .pulley {
+  animation: spin 3s linear infinite;
+}
+.proj-card:hover .water-flow {
+  animation: pulse 1s linear infinite;
+}
+.proj-card:hover .backhoe-arm {
+  animation: backhoe-swing 4s ease-in-out infinite;
+}
+.proj-card:hover .backhoe-forearm {
+  animation: forearm-swing 4s ease-in-out infinite;
+}
+.proj-card:hover .backhoe-bucket {
+  animation: bucket-swing 4s ease-in-out infinite;
+}
+
+/* ════════════════════════════════
+   RESPONSIVE DESIGN
+   ════════════════════════════════ */
+@media (max-width: 960px) {
+  .hero-grid, .about-grid, .skills-grid, .proj-grid, .exp-layout, .edu-grid, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .proj-card.feat {
+    grid-template-columns: 1fr;
+  }
+  .proj-card.feat .project-svg {
+    height: 160px;
+  }
+  nav .nav-links {
+    display: none;
+  }
+  #hero {
+    padding-top: 100px;
+  }
+  .timeline::before {
+    left: 3px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient background design -->
+<div class="glow-blobs" aria-hidden="true">
+  <div class="glow-blob-1"></div>
+  <div class="glow-blob-2"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- HEADER / NAVIGATION -->
+<header>
+  <nav>
+    <a href="#" class="nav-logo">MADESWARAN<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="switcher" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <i class="ti ti-sun" id="themeIcon" aria-hidden="true"></i>
+      </button>
+      <a href="#contact" class="nav-cta">Connect</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-pill">
+          <span class="dot"></span>
+          Available for R&amp;D &amp; Design Roles
+        </div>
+        <h1>Hi, I'm <span class="gradient-text">Madeswaran.</span><br>I design things<br>that move.</h1>
+        <div class="hero-rule"></div>
+        <p class="hero-sub">Mechanical Engineering student passionate about CAD design, robotic automation, and product development — transforming physical principles into manufacturable solutions.</p>
+        
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <i class="ti ti-map-pin"></i>
+            <span>Trichy, India</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="ti ti-calendar"></i>
+            <span>BE expected 2027</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="madesh resume 1.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="ti ti-file-text"></i> Resume
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Get in touch <i class="ti ti-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/madeswaran-k-2599962a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+            <i class="ti ti-brand-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Tech ID Card (Tilt) -->
+      <div class="hero-card-container">
+        <div class="hero-card cad-card">
+          <span class="cad-corner cad-tl"></span>
+          <span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span>
+          <span class="cad-corner cad-br"></span>
+          
+          <div class="card-header-tech">
+            <span class="tech-mono">[ SYSTEM STATE: OK ]</span>
+            <span class="tech-mono">REF://MDS.04</span>
+          </div>
+          
+          <div class="card-avatar-wrap">
+            <div class="hero-avatar">MK</div>
+            <div class="card-title-block">
+              <span class="hero-card-name">Madeswaran K.</span>
+              <span class="hero-card-role">
+                <i class="ti ti-award"></i> CSWA Certified
+              </span>
+            </div>
+          </div>
+
+          <div class="hero-divider"></div>
+          
+          <div class="hero-icogrid">
+            <div class="hero-icocell">
+              <div class="ic-box"><i class="ti ti-cube"></i></div>
+              <div class="ic-top">CAD Design</div>
+              <div class="ic-bot">3D Assemblies</div>
+            </div>
+            <div class="hero-icocell">
+              <div class="ic-box"><i class="ti ti-settings"></i></div>
+              <div class="ic-top">Product Dev</div>
+              <div class="ic-bot">TRL Prototypes</div>
+            </div>
+            <div class="hero-icocell">
+              <div class="ic-box"><i class="ti ti-pencil"></i></div>
+              <div class="ic-top">Language</div>
+              <div class="ic-bot">Java</div>
+            </div>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="7" data-suffix="+">0</span>
+              <span class="hero-stat-lbl">Projects</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="8.16" data-decimals="2">0</span>
+              <span class="hero-stat-lbl">GPA</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-num counter" data-target="1">0</span>
+              <span class="hero-stat-lbl">Grants</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">// PROFILE</span>
+        <h2>Precision, execution, and engineering</h2>
+        <div class="about-text">
+          <p>I'm a Mechanical Engineering undergraduate at K. Ramakrishnan College of Technology with practical experience in CAD modeling, finite element analysis (FEA), and mechanical fabrication. As a certified SOLIDWORKS CAD Design Associate (CSWA), I focus on translating complex constraints into functional, manufacturable products.</p>
+          <p>My work ranges from structural mechanics to automation design, incorporating hands-on tool usage (CNC, wire cutting, 3D printing) alongside computational analysis using ANSYS. I value technical documentation, engineering logic, and iterative debugging to verify project parameters before physical fabrication.</p>
+        </div>
+      </div>
+      <div>
+        <div class="stat-card-row">
+          <div class="stat-card cad-card">
+            <span class="cad-corner cad-tl"></span><span class="cad-corner cad-br"></span>
+            <div class="stat-num counter" data-target="7" data-suffix="+">0</div>
+            <div class="stat-lbl">Engg. Projects</div>
+          </div>
+          <div class="stat-card cad-card">
+            <span class="cad-corner cad-tl"></span><span class="cad-corner cad-br"></span>
+            <div class="stat-num counter" data-target="8.16" data-decimals="2">0</div>
+            <div class="stat-lbl">Current GPA</div>
+          </div>
+        </div>
+        <div class="cert-row">
+          <div class="cert-ico">
+            <i class="ti ti-award"></i>
+          </div>
+          <div>
+            <div class="cert-name">CSWA Certified</div>
+            <div class="cert-sub">SOLIDWORKS CAD Design Associate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS & TOOLKIT -->
+  <section id="skills">
+    <div class="container">
+      <span class="eyebrow">// TOOLKIT</span>
+      <h2>Technical Capabilities</h2>
+      
+      <div class="skills-grid">
+        <!-- CAD & Design -->
+        <div class="skill-grp cad-card">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <div class="grp-title">
+            <i class="ti ti-cube"></i>
+            <span>CAD &amp; Modelling</span>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-meta"><span>SolidWorks</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>AutoCAD</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="82"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>Assembly Design</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulation & Analysis -->
+        <div class="skill-grp cad-card">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <div class="grp-title">
+            <i class="ti ti-chart-dots"></i>
+            <span>Analysis &amp; FEA</span>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-meta"><span>ANSYS Workbench</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="74"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>ANSYS APDL</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="68"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fabrication & Tooling -->
+        <div class="skill-grp cad-card">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <div class="grp-title">
+            <i class="ti ti-settings"></i>
+            <span>Manufacturing</span>
+          </div>
+          <div class="skills-list">
+            <div class="skill-item">
+              <div class="skill-meta"><span>3D Printing (SLA/FDM)</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="86"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>CNC Drilling / Milling</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="70"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta"><span>Wire EDM / Welding</span></div>
+              <div class="precision-scale">
+                <div class="scale-ticks"></div>
+                <div class="scale-runner" data-percent="65"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Programming & Development -->
+<div class="skill-grp cad-card">
+  <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+  <div class="grp-title">
+    <i class="ti ti-code"></i>
+    <span>Programming &amp; Development</span>
+  </div>
+  <div class="skills-list">
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <span>Java</span>
+      </div>
+      <div class="precision-scale">
+        <div class="scale-ticks"></div>
+        <div class="scale-runner" data-percent="85"></div>
+      </div>
+    </div>
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <span>HTML & CSS</span>
+      </div>
+      <div class="precision-scale">
+        <div class="scale-ticks"></div>
+        <div class="scale-runner" data-percent="90"></div>
+      </div>
+    </div>
+
+
+    <div class="skill-item">
+      <div class="skill-meta">
+        <span>Data Structures & Algorithms</span>
+      </div>
+      <div class="precision-scale">
+        <div class="scale-ticks"></div>
+        <div class="scale-runner" data-percent="80"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTED PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="sec-hdr">
+        <div>
+          <span class="eyebrow">// BLUEPRINTS</span>
+          <h2> Academic Projects</h2>
+        </div>
+        
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="cad">CAD/Design</button>
+          <button class="filter-btn" data-filter="robotics">Robotics</button>
+          <button class="filter-btn" data-filter="energy">Energy/R&amp;D</button>
+        </div>
+      </div>
+
+      <div class="proj-grid">
+        <!-- Project 1 (FEAT) -->
+        <div class="proj-card feat cad-card" data-cat="cad energy">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+          
+          <div>
+            <div class="pmeta">
+              <span class="pdate">Jan – May 2025</span>
+              <span class="pbadge funded">Grant Funded</span>
+            </div>
+            <h3 class="ptitle">Tractor-Mounted Hydraulic Backhoe</h3>
+            <p class="pdesc">Designed and modeled a detachable backhoe attachment that converts conventional tractors into multi-functional excavation machinery. The system was structured under strict structural guidelines to withstand high torque and lifting forces. Funded by the EDII-TN Voucher A Grant; currently evaluated at TRL 3 with a pilot prototype undergoing functional testing.</p>
+            <div class="ptags">
+              <span class="ptag">SOLIDWORKS</span>
+              <span class="ptag">Hydraulic Systems</span>
+              <span class="ptag">Structural FEA</span>
+              <span class="ptag">Fabrication</span>
+            </div>
+          </div>
+
+          <div class="project-svg">
+            <svg viewBox="0 0 120 80" aria-label="Hydraulic Backhoe Blueprint">
+              <!-- Ground reference -->
+              <line x1="10" y1="70" x2="110" y2="70" stroke="currentColor" stroke-dasharray="2,2" stroke-width="0.8"/>
+              <!-- Tractor frame -->
+              <rect x="15" y="38" width="30" height="20" rx="2" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+              <circle cx="22" cy="58" r="8" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+              <circle cx="38" cy="60" r="6" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.4"/>
+              <line x1="45" y1="48" x2="52" y2="48" stroke="currentColor" stroke-width="2"/>
+              <!-- Backhoe Articulated Arm -->
+              <g class="backhoe-arm" style="transform-origin: 52px 48px;">
+                <!-- Main Boom -->
+                <line x1="52" y1="48" x2="72" y2="28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Hydraulic cylinder 1 -->
+                <line x1="52" y1="48" x2="68" y2="30" stroke="var(--accent)" stroke-width="1" stroke-linecap="round"/>
+                <!-- Forearm -->
+                <g class="backhoe-forearm" style="transform-origin: 72px 28px;">
+                  <line x1="72" y1="28" x2="90" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <!-- Hydraulic cylinder 2 -->
+                  <line x1="68" y1="30" x2="84" y2="38" stroke="var(--accent)" stroke-width="0.8"/>
+                  <!-- Bucket -->
+                  <g class="backhoe-bucket" style="transform-origin: 90px 42px;">
+                    <path d="M 90 42 Q 97 49 93 56 L 86 52 Q 88 45 90 42 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                    <!-- teeth -->
+                    <line x1="86" y1="52" x2="83" y2="54" stroke="currentColor" stroke-width="0.8"/>
+                    <line x1="88" y1="54" x2="85" y2="56" stroke="currentColor" stroke-width="0.8"/>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="proj-card cad-card" data-cat="robotics cad">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+          
+          <div class="project-svg">
+            <svg viewBox="0 0 100 100" aria-label="Robotic Drainage Cleaner Blueprint">
+              <!-- Filter cage -->
+              <rect x="75" y="32" width="16" height="36" rx="2" stroke="currentColor" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+              <!-- Conveyor outline -->
+              <rect x="25" y="42" width="46" height="16" rx="8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              <!-- Pulley left -->
+              <g class="pulley" style="transform-origin: 25px 50px;">
+                <circle cx="25" cy="50" r="8" stroke="currentColor" stroke-width="1" fill="none"/>
+                <circle cx="25" cy="50" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+                <line x1="25" y1="42" x2="25" y2="58" stroke="currentColor" stroke-width="0.8"/>
+              </g>
+              <!-- Pulley right -->
+              <g class="pulley" style="transform-origin: 71px 50px;">
+                <circle cx="71" cy="50" r="8" stroke="currentColor" stroke-width="1" fill="none"/>
+                <circle cx="71" cy="50" r="2.5" stroke="currentColor" stroke-width="1" fill="none"/>
+                <line x1="71" y1="42" x2="71" y2="58" stroke="currentColor" stroke-width="0.8"/>
+              </g>
+              <!-- Collector blade -->
+              <path d="M 48 42 L 48 26 Q 48 20 42 20" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+              <line x1="42" y1="20" x2="38" y2="24" stroke="var(--accent)" stroke-width="1.2"/>
+            </svg>
+          </div>
+          
+          <div class="pmeta">
+            <span class="pdate">Apr – May 2025</span>
+          </div>
+          <h3 class="ptitle">Automated Robotic Drainage Cleaner</h3>
+          <p class="pdesc">An automated conveyor belt mechanism designed to clear physical blockages in storm drains. Powered by high-torque DC motors, incorporating a filtration unit to screen debris from run-off water.</p>
+          <div class="ptags">
+            <span class="ptag">Belt Drives</span>
+            <span class="ptag">Robotics</span>
+            <span class="ptag">CAD Drafting</span>
+            <span class="ptag">Prototyping</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="proj-card cad-card" data-cat="energy cad">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+          
+          <div class="project-svg">
+            <svg viewBox="0 0 100 100" aria-label="Turbine Solar System Blueprint">
+              <!-- Water flow vectors -->
+              <path d="M 12 28 Q 30 28 35 42 T 42 78" stroke="var(--accent)" stroke-width="1" fill="none" stroke-dasharray="3,3" class="water-flow"/>
+              <!-- Solar PV structure -->
+              <g transform="translate(62, 22)">
+                <rect x="0" y="0" width="26" height="16" rx="2" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <line x1="0" y1="8" x2="26" y2="8" stroke="currentColor" stroke-width="0.8"/>
+                <line x1="6.5" y1="0" x2="6.5" y2="16" stroke="currentColor" stroke-width="0.8"/>
+                <line x1="13" y1="0" x2="13" y2="16" stroke="currentColor" stroke-width="0.8"/>
+                <line x1="19.5" y1="0" x2="19.5" y2="16" stroke="currentColor" stroke-width="0.8"/>
+                <!-- mount -->
+                <line x1="13" y1="16" x2="13" y2="24" stroke="currentColor" stroke-width="1.2"/>
+                <line x1="5" y1="24" x2="21" y2="24" stroke="currentColor" stroke-width="1.2"/>
+              </g>
+              <!-- Hydro turbine wheel -->
+              <g class="turbine" style="transform-origin: 35px 58px;">
+                <circle cx="35" cy="58" r="14" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="35" cy="58" r="4.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <!-- Blades -->
+                <path d="M 35 44 L 35 36 M 35 72 L 35 80 M 21 58 L 13 58 M 49 58 L 57 58" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M 25 48 L 19 42 M 45 68 L 51 74 M 25 68 L 19 74 M 45 48 L 51 42" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+          
+          <div class="pmeta">
+            <span class="pdate">Aug – Dec 2024</span>
+            <span class="pbadge research">Research</span>
+          </div>
+          <h3 class="ptitle">Hybrid Hydro + Solar Generation</h3>
+          <p class="pdesc">A combined clean energy generation platform. Modeled custom high-efficiency water turbine blades in SOLIDWORKS and verified geometry parameters via 3D printed scale models in testing flumes.</p>
+          <div class="ptags">
+            <span class="ptag">SOLIDWORKS</span>
+            <span class="ptag">Fluid Dynamics</span>
+            <span class="ptag">3D Printing</span>
+            <span class="ptag">PV Panels</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="proj-card cad-card" data-cat="energy">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+          
+          <div class="project-svg">
+            <svg viewBox="0 0 100 100" aria-label="Al-Si Alloy Piston Blueprint">
+              <!-- Piston body wireframe -->
+              <path d="M 32 22 H 68 V 68 L 64 70 V 76 H 36 V 70 L 32 68 Z" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              <!-- Compression Ring Grooves -->
+              <rect x="28" y="28" width="4" height="2.5" fill="currentColor"/>
+              <rect x="68" y="28" width="4" height="2.5" fill="currentColor"/>
+              <rect x="28" y="35" width="4" height="2.5" fill="currentColor"/>
+              <rect x="68" y="35" width="4" height="2.5" fill="currentColor"/>
+              <rect x="28" y="42" width="4" height="2.5" fill="currentColor"/>
+              <rect x="68" y="42" width="4" height="2.5" fill="currentColor"/>
+              <!-- Pin bore -->
+              <circle cx="50" cy="54" r="7" stroke="currentColor" stroke-width="1" fill="none"/>
+              <!-- Wear force vectors -->
+              <path d="M 20 28 L 26 28 M 20 35 L 26 35 M 20 42 L 26 42" stroke="var(--accent)" stroke-width="0.8"/>
+              <path d="M 80 28 L 74 28 M 80 35 L 74 35 M 80 42 L 74 42" stroke="var(--accent)" stroke-width="0.8"/>
+              <!-- Axis line -->
+              <line x1="50" y1="14" x2="50" y2="86" stroke="currentColor" stroke-width="0.8" stroke-dasharray="8,2,2,2"/>
+            </svg>
+          </div>
+          
+          <div class="pmeta">
+            <span class="pdate">Jan 2024</span>
+          </div>
+          <h3 class="ptitle">Wear Resistance of Al-Si Alloys</h3>
+          <p class="pdesc">Research into performance parameters of aluminum-silicon gravity die-casted cylinder alloys to reduce wear coefficients in automotive engines. Conducted hardness validation and dry wear trials.</p>
+          <div class="ptags">
+            <span class="ptag">Metallurgy</span>
+            <span class="ptag">Die Casting</span>
+            <span class="ptag">Hardness Testing</span>
+            <span class="ptag">Data Analysis</span>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="proj-card cad-card" data-cat="cad">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+          
+          <div class="project-svg">
+            <svg viewBox="0 0 100 100" aria-label="Gear Train Blueprint">
+              <!-- Pitch Circles -->
+              <circle cx="36" cy="50" r="17" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3,3" fill="none"/>
+              <circle cx="68" cy="50" r="11" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3,3" fill="none"/>
+              <!-- Main Spur Gear -->
+              <g class="gear-main" style="transform-origin: 36px 50px;">
+                <circle cx="36" cy="50" r="14" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="36" cy="50" r="4" stroke="currentColor" stroke-width="1" fill="none"/>
+                <!-- Teeth -->
+                <path d="M 36 32 V 36 M 36 64 V 68 M 18 50 H 22 M 50 50 H 54" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M 23 37 L 26 40 M 46 60 L 49 63 M 23 63 L 26 60 M 46 37 L 49 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </g>
+              <!-- Driven Spur Gear -->
+              <g class="gear-second" style="transform-origin: 68px 50px;">
+                <circle cx="68" cy="50" r="9" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="68" cy="50" r="3" stroke="currentColor" stroke-width="1" fill="none"/>
+                <!-- Teeth -->
+                <path d="M 68 37 V 40 M 68 60 V 63 M 55 50 H 58 M 78 50 H 81" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M 59 41 L 61 43 M 75 57 L 77 59 M 59 57 L 61 55 M 75 41 L 77 43" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+          
+          <div class="pmeta">
+            <span class="pdate">2023 – 2024</span>
+          </div>
+          <h3 class="ptitle">Design &amp; Manufacture of Gear Train</h3>
+          <p class="pdesc">Mechanical design of a multi-stage spur gear reducer to achieve target mechanical reduction ratios. Evaluated clearances before fabricating components on CNC milling and EDM wire cutters.</p>
+          <div class="ptags">
+            <span class="ptag">SOLIDWORKS</span>
+            <span class="ptag">Gear Geometry</span>
+            <span class="ptag">CNC Milling</span>
+            <span class="ptag">Wire EDM</span>
+          </div>
+        </div>
+        <!-- Project 6 -->
+         <div class="proj-card cad-card" data-cat="software">
+  <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+  <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+  
+  <div class="project-svg">
+    <svg viewBox="0 0 100 100" aria-label="Machining Time Estimation Blueprint">
+      <!-- Machine block -->
+      <rect x="25" y="25" width="50" height="40" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      
+      <!-- Drill tool -->
+      <path d="M50 15 L55 25 L45 25 Z" fill="currentColor"/>
+      <line x1="50" y1="25" x2="50" y2="45" stroke="currentColor" stroke-width="1.2"/>
+      
+      <!-- Workpiece -->
+      <rect x="35" y="45" width="30" height="12" stroke="currentColor" stroke-width="1" fill="none"/>
+      
+      <!-- Measurement arrows -->
+      <line x1="20" y1="75" x2="80" y2="75" stroke="var(--accent)" stroke-width="0.8"/>
+      <path d="M20 75 L24 73 M20 75 L24 77" stroke="var(--accent)" stroke-width="0.8"/>
+      <path d="M80 75 L76 73 M80 75 L76 77" stroke="var(--accent)" stroke-width="0.8"/>
+      
+      <!-- Axis -->
+      <line x1="50" y1="10" x2="50" y2="90"
+            stroke="currentColor" stroke-width="0.8"
+            stroke-dasharray="8,2,2,2"/>
+    </svg>
+  </div>
+  
+  <div class="pmeta">
+    <span class="pdate">Nov 2024</span>
+  </div>
+
+  <h3 class="ptitle">Machining Time Estimation System</h3>
+
+  <p class="pdesc">
+    Developed a Python-based application to estimate machining time for
+    turning, milling, and drilling operations. Implemented industry-standard
+    machining formulas using cutting speed, feed rate, depth of cut, and tool
+    path parameters to improve production planning and scheduling efficiency.
+  </p>
+
+  <div class="ptags">
+    <span class="ptag">Python</span>
+    <span class="ptag">Manufacturing</span>
+    <span class="ptag">Process Optimization</span>
+    <span class="ptag">Data Analysis</span>
+  </div>
+</div>
+   
+<!-- Project 6 -->
+ <div class="proj-card cad-card" data-cat="software">
+  <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+  <span class="cad-corner cad-bl"></span><span class="cad-corner cad-br"></span>
+  
+  <div class="project-svg">
+    <svg viewBox="0 0 100 100" aria-label="Traffic Signal Monitoring Blueprint">
+      <!-- Traffic Light -->
+      <rect x="40" y="18" width="20" height="38" stroke="currentColor" stroke-width="1.2" fill="none"/>
+      <circle cx="50" cy="27" r="3" fill="currentColor"/>
+      <circle cx="50" cy="37" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+      <circle cx="50" cy="47" r="3" fill="none" stroke="currentColor" stroke-width="0.8"/>
+      
+      <!-- Pole -->
+      <line x1="50" y1="56" x2="50" y2="82" stroke="currentColor" stroke-width="1.2"/>
+      
+      <!-- Queue Cars -->
+      <rect x="20" y="68" width="10" height="6" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <rect x="35" y="68" width="10" height="6" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <rect x="65" y="68" width="10" height="6" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      
+      <!-- Flow Arrows -->
+      <path d="M15 40 L30 40" stroke="var(--accent)" stroke-width="0.8"/>
+      <path d="M70 40 L85 40" stroke="var(--accent)" stroke-width="0.8"/>
+      
+      <!-- Center Axis -->
+      <line x1="50" y1="10" x2="50" y2="90"
+            stroke="currentColor"
+            stroke-width="0.8"
+            stroke-dasharray="8,2,2,2"/>
+    </svg>
+  </div>
+  
+  <div class="pmeta">
+    <span class="pdate">May 2024</span>
+  </div>
+
+  <h3 class="ptitle">Traffic Signal Monitoring System</h3>
+
+  <p class="pdesc">
+    Developed a C-based traffic signal simulation system using Queue Data Structures to manage vehicle flow at a four-way intersection. Implemented traffic light state transitions (Red, Yellow, Green), real-time signal monitoring, and FIFO-based vehicle management to improve traffic flow and intersection efficiency.
+  </p>
+
+  <div class="ptags">
+    <span class="ptag">C Programming</span>
+    <span class="ptag">Data Structures</span>
+    <span class="ptag">Queue</span>
+    <span class="ptag">Simulation</span>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & RECOGNITION -->
+  <section id="experience">
+    <div class="container">
+      <span class="eyebrow">// TRACK RECORD</span>
+      <h2>Experience &amp; Milestones</h2>
+      
+      <div class="exp-layout">
+        <div class="timeline">
+          <!-- Item 1 -->
+          <div class="exp-item">
+            <div class="timeline-node"></div>
+            <h3 class="exp-role">Catalyst 2026 Participant</h3>
+            <div class="exp-org">IIT Madras Research Park, Chennai · Feb 2026</div>
+            <ul class="exp-ul">
+              <li>Selected to attend the Catalyst startup and product cohort at IIT-M Research Park.</li>
+              <li>Received validation feedback from founders and industry mentors regarding structural optimization and manufacturing steps for commercial utility components.</li>
+            </ul>
+          </div>
+          <!-- Item 2 -->
+          <div class="exp-item">
+            <div class="timeline-node"></div>
+            <h3 class="exp-role">Grant Recipient — EDII-TN Voucher A</h3>
+            <div class="exp-org">Entrepreneurship Development &amp; Innovation Institute, Tamil Nadu · 2025</div>
+            <ul class="exp-ul">
+              <li>Secured state funding for design development of the Tractor-Mounted Hydraulic Backhoe project.</li>
+              <li>Coordinates with manufacturing partners to fabricate the structural assembly and supervise field verification.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="cert-aside cad-card">
+            <span class="cad-corner cad-tl"></span><span class="cad-corner cad-br"></span>
+            <h3 class="ca-title">Credentials</h3>
+            <div class="ca-list">
+              <div class="ca-item">
+                <span class="ca-dot"></span>
+                <div>
+                  <div class="ca-name">SOLIDWORKS Associate (CSWA)</div>
+                  <div class="ca-sub">Dassault Systèmes · 2024</div>
+                  <div class="tech-mono" style="margin-top: 4px;">ID: C-5YJ9PX3XJ2</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMICS -->
+  <section id="education">
+    <div class="container">
+      <span class="eyebrow">// ACADEMICS</span>
+      <h2>Academic Background</h2>
+      
+      <div class="edu-grid">
+        <!-- B.E -->
+        <div class="edu-card cad-card">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <div class="edu-header">
+            <div class="edu-icon-box">
+              <i class="ti ti-school"></i>
+            </div>
+            <span class="edu-grade">8.16 CGPA</span>
+          </div>
+          <h3 class="edu-deg">B.E. Mechanical Engineering</h3>
+          <div class="edu-sch">K. Ramakrishnan College of Technology</div>
+          <div class="edu-foot">
+            <i class="ti ti-calendar"></i>
+            <span>Expected May 2027</span>
+          </div>
+        </div>
+        <!-- School -->
+        <div class="edu-card cad-card">
+          <span class="cad-corner cad-tl"></span><span class="cad-corner cad-tr"></span>
+          <div class="edu-header">
+            <div class="edu-icon-box">
+              <i class="ti ti-books"></i>
+            </div>
+            <span class="edu-grade">81% Score</span>
+          </div>
+          <h3 class="edu-deg">Higher Secondary (HSC)</h3>
+          <div class="edu-sch">Govt. Saidi Muthupa Higher Secondary School</div>
+          <div class="edu-foot">
+            <i class="ti ti-calendar"></i>
+            <span>Completed Apr 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">// CONNECTION</span>
+        <h2>Contact Details</h2>
+        <p class="body-txt" style="color: hsl(var(--ink-muted)); font-size:14px; margin-bottom: 30px;">Open to mechanical engineering design internships, R&amp;D roles, and project collaborations.</p>
+        
+        <div>
+          <div class="c-item">
+            <div class="c-ico"><i class="ti ti-mail"></i></div>
+            <div>
+              <div class="c-lbl">Email Address</div>
+              <div class="c-val"><a href="mailto:madeswaran.k.trichy@gmail.com">madeswarankrishnakumar13@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico"><i class="ti ti-phone"></i></div>
+            <div>
+              <div class="c-lbl">Direct Phone</div>
+              <div class="c-val"><a href="tel:+919876543210">+91 8925334950</a></div>
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico"><i class="ti ti-brand-linkedin"></i></div>
+            <div>
+              <div class="c-lbl">Professional Profile</div>
+              <div class="c-val"><a href="https://www.linkedin.com/in/madeswaran-k-2599962a2?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer">linkedin.com/in/madeswaran-k</a></div>
+            </div>
+          </div>
+           <!-- <div>
+              <div class="c-lbl">Github Profile</div>
+              <div class="c-val"><a href="https://github.com/madeswarank13" target="_blank" rel="noopener noreferrer">linkedin.com/in/madeswaran-k</a></div>
+            </div> -->
+            <div class="c-item">
+            <div class="c-ico"><i class="ti ti-brand-github"></i></div>
+            <div>
+              <div class="c-lbl">Github Profile</div>
+              <div class="c-val"><a href="https://github.com/madeswarank13" target="_blank" rel="noopener noreferrer">https://github.com/madeswarank13</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+          <div class="form-row">
+            <div class="fg">
+              <label for="frmName">Full Name</label>
+              <input type="text" id="frmName" placeholder="Madeswaran K" required />
+            </div>
+            <div class="fg">
+              <label for="frmEmail">Email Address</label>
+              <input type="email" id="frmEmail" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="fg">
+            <label for="frmMsg">Message Context</label>
+            <textarea id="frmMsg" rows="5" placeholder="Specify CAD requirements, project goals, or scheduling queries..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <span>Transmit Message</span>
+            <i class="ti ti-send"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 <strong>Madeswaran K.</strong> · Precision Drafted Portfolio</p>
+    <p class="tech-mono" style="margin-top: 8px; opacity: 0.6;">ISO 9001 COMPLIANT VIEWPORT</p>
+  </div>
+</footer>
+
+<!-- Toast notification element -->
+<div class="toast" id="submitToast" role="alert" aria-live="assertive">
+  <div class="toast-icon">
+    <i class="ti ti-check"></i>
+  </div>
+  <div class="toast-content">
+    <h4>Transmission Successful</h4>
+    <p>Message cached and logged. Thank you.</p>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+// ════════════════════════════════
+// THEME MANAGEMENT
+// ════════════════════════════════
+function initTheme() {
+  const saved = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcon(saved);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateThemeIcon(next);
+}
+
+function updateThemeIcon(theme) {
+  const icon = document.getElementById('themeIcon');
+  if (icon) {
+    icon.className = theme === 'light' ? 'ti ti-moon' : 'ti ti-sun';
+  }
+}
+
+// ════════════════════════════════
+// 3D TILT EFFECT FOR HERO CARD
+// ════════════════════════════════
+const card = document.querySelector('.hero-card');
+if (card) {
+  const container = document.querySelector('.hero-card-container');
+  container.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    // Tilt strength values
+    const rX = -(y / rect.height) * 16;
+    const rY = (x / rect.width) * 16;
+    
+    card.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg) scale3d(1.02, 1.02, 1.02)`;
+  });
+  
+  container.addEventListener('mouseleave', () => {
+    card.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    card.style.transition = 'transform 0.5s ease';
+  });
+  
+  container.addEventListener('mouseenter', () => {
+    card.style.transition = 'none';
+  });
+}
+
+// ════════════════════════════════
+// STATS COUNT-UP ANIMATION
+// ════════════════════════════════
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const endVal = parseFloat(target.getAttribute('data-target'));
+      const duration = 1600; // milliseconds
+      let startTimestamp = null;
+      
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = progress * endVal;
+        
+        if (target.getAttribute('data-decimals') === '2') {
+          target.innerText = current.toFixed(2);
+        } else {
+          target.innerText = Math.floor(current);
+        }
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          target.innerText = endVal + (target.getAttribute('data-suffix') || '');
+        }
+      };
+      
+      window.requestAnimationFrame(step);
+      statsObserver.unobserve(target);
+    }
+  });
+}, { threshold: 0.2 });
+
+// ════════════════════════════════
+// SKILL RUNNERS (PRECISION BARS)
+// ════════════════════════════════
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const runner = entry.target;
+      const percent = runner.getAttribute('data-percent');
+      runner.style.left = `${percent}%`;
+      skillObserver.unobserve(runner);
+    }
+  });
+}, { threshold: 0.1 });
+
+// ════════════════════════════════
+// PROJECT FILTER LOGIC
+// ════════════════════════════════
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projCards = document.querySelectorAll('.proj-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // toggle active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const filter = btn.getAttribute('data-filter');
+    
+    projCards.forEach(card => {
+      const categories = card.getAttribute('data-cat').split(' ');
+      if (filter === 'all' || categories.includes(filter)) {
+        card.style.display = card.classList.contains('feat') ? 'grid' : 'flex';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1)';
+        }, 10);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 300); // match transition
+      }
+    });
+  });
+});
+
+// ════════════════════════════════
+// SCROLL PROGRESS & TIMELINE ACTION
+// ════════════════════════════════
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('scrollProgress').style.width = scrolled + '%';
+});
+
+// ════════════════════════════════
+// FORM SUBMISSION & TOAST
+// ════════════════════════════════
+function handleContactSubmit(e) {
+  e.preventDefault();
+  
+  // Show submit toast
+  const toast = document.getElementById('submitToast');
+  toast.classList.add('show');
+  
+  // Reset form
+  document.getElementById('contactForm').reset();
+  
+  // Hide toast after 4s
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 4000);
+}
+
+// ════════════════════════════════
+// INITIALIZATION
+// ════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  
+  // Trigger counters and skills
+  document.querySelectorAll('.counter').forEach(el => statsObserver.observe(el));
+  document.querySelectorAll('.scale-runner').forEach(el => skillObserver.observe(el));
+});
+</script>
+</body>
+</html>
